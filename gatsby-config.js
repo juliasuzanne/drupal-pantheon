@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Gatsby Every Day`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
@@ -21,6 +21,17 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `https://dev-stanza.pantheonsite.io/`,
+        // apiBase: `api`, // optional, defaults to `jsonapi`
+        // basicAuth: {
+        //   username: process.env.BASIC_AUTH_USERNAME,
+        //   password: process.env.BASIC_AUTH_PASSWORD,
+        // },
       },
     },
     `gatsby-transformer-sharp`,
