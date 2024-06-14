@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,7 +19,10 @@ const Articles = ({ data }) => {
           key={article.node.id}
           title={article.node.title}
           path={article.node.path.alias}
-          image={article.node.relationships.field_image.localFile.publicURL}
+          image={
+            article.node.relationships.field_image.localFile.childImageSharp
+              .fluid
+          }
           alt={article.node.field_image.alt}
           summary={
             article.node.body.summary
@@ -53,7 +57,11 @@ export const data = graphql`
           relationships {
             field_image {
               localFile {
-                publicURL
+                childImageSharp {
+                  fluid(maxWidth: 600) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
             }
             comment__comment {

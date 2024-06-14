@@ -34,6 +34,7 @@ module.exports = {
         // },
       },
     },
+    `gatsby-plugin-drupal-comments`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
