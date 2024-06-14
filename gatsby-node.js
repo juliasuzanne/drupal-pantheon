@@ -10,7 +10,9 @@
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 
-const path = require(`path`)
+if (typeof window !== `undefined`) {
+  const path = require("path")
+}
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   // createPage({
