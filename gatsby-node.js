@@ -13,6 +13,15 @@
 if (typeof window !== `undefined`) {
   const path = require("path")
 
+  exports.createPages = async ({ actions, graphql }) => {
+    const { createPage } = actions
+    // createPage({
+    //   path: "/using-dsg",
+    //   component: require.resolve("./src/templates/using-dsg.js"),
+    //   context: {},
+    //   defer: true,
+    // })
+  }
   const articles = await graphql(`
     {
       allNodeArticle {
@@ -26,16 +35,6 @@ if (typeof window !== `undefined`) {
       }
     }
   `)
-
-  exports.createPages = async ({ actions, graphql }) => {
-    const { createPage } = actions
-    // createPage({
-    //   path: "/using-dsg",
-    //   component: require.resolve("./src/templates/using-dsg.js"),
-    //   context: {},
-    //   defer: true,
-    // })
-  }
 
   articles.data.allNodeArticle.nodes.map(articleData =>
     createPage({
