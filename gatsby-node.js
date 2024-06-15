@@ -13,6 +13,20 @@
 if (typeof window !== `undefined`) {
   const path = require("path")
 
+  const articles = await graphql(`
+    {
+      allNodeArticle {
+        nodes {
+          id
+          title
+          path {
+            alias
+          }
+        }
+      }
+    }
+  `)
+
   exports.createPages = async ({ actions, graphql }) => {
     const { createPage } = actions
     // createPage({
@@ -32,17 +46,3 @@ if (typeof window !== `undefined`) {
     })
   )
 }
-
-const articles = await graphql(`
-  {
-    allNodeArticle {
-      nodes {
-        id
-        title
-        path {
-          alias
-        }
-      }
-    }
-  }
-`)
