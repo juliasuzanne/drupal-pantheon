@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import DrupalComments from ‘gatsby-plugin-drupal-comments’;
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
