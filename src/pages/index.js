@@ -99,6 +99,9 @@ const IndexPage = () => (
     <div>
       <Link to="/about">About</Link>
     </div>
+    <div>
+      <Link to="/articles">Articles</Link>
+    </div>
     <ul className={styles.list}>
       {links.map(link => (
         <li key={link.url} className={styles.listItem}>
