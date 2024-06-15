@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import DrupalComments from "gatsby-plugin-drupal-comments"
 
 const Article = ({ data }) => {
   const post = data.nodeArticle
@@ -14,16 +13,6 @@ const Article = ({ data }) => {
         alt={post.field_image.alt}
       ></img>
       <div dangerouslySetInnerHTML={{ __html: post.body.processed }}></div>
-      <DrupalComments
-        entity_id="drupal id node"
-        type_comment="comment"
-        field_name="comment"
-        type_content="type content"
-        entity_type="type entity"
-        url_api="https://dev-stanza.pantheonsite.io/jsonapi/comment/comment"
-        // login_api="username"
-        // password_api="password"
-      />
     </Layout>
   )
 }
