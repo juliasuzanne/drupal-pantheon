@@ -22,19 +22,6 @@ if (typeof window !== `undefined`) {
     //   defer: true,
     // })
   }
-  const articles = await graphql(`
-    {
-      allNodeArticle {
-        nodes {
-          id
-          title
-          path {
-            alias
-          }
-        }
-      }
-    }
-  `)
 
   articles.data.allNodeArticle.nodes.map(articleData =>
     createPage({
@@ -45,3 +32,17 @@ if (typeof window !== `undefined`) {
     })
   )
 }
+
+const articles = await graphql(`
+  {
+    allNodeArticle {
+      nodes {
+        id
+        title
+        path {
+          alias
+        }
+      }
+    }
+  }
+`)
